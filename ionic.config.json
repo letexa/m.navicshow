@@ -1,0 +1,7 @@
+{
+  "name": "MSKWeather",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

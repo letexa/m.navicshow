@@ -1,0 +1,45 @@
+  <app-menu></app-menu>
+
+  <h1 class="mt-5">
+    <span *ngIf="!isEdit; else editTitle">
+      Добавление категории
+    </span>
+    <ng-template #editTitle>
+        <span>Редактирование категории</span>
+    </ng-template>
+  </h1>
+
+  <form #form="ngForm" 
+    [formGroup]="formGroup"
+    (ngSubmit)="submitForm(form)" 
+    class="ng-pristine ng-untouched ng-valid" 
+    novalidate
+  >
+
+    <div class="form-group col-4">
+      <label for="name">Название</label>
+      <input type="text" class="form-control" id="name"
+        name="name"
+        formControlName="name"
+        required
+        minlength="3"
+      >
+      <ul class="text-danger list-unstyled"
+        *ngIf="(formSubmitted)">
+        <li *ngFor="let error of formGroup.controls.name.getValidationMessages()">
+          {{error}}
+        </li>
+      </ul>
+    </div>
+
+    <button type="submit" class="btn btn-success">
+      <span *ngIf="!isEdit; else editButton">
+        Создать
+      </span>
+      <ng-template #editButton>
+          <span>Редактировать</span>
+      </ng-template>
+    </button>
+
+  </form>
+

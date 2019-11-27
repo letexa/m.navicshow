@@ -1,0 +1,9 @@
+<app-menu></app-menu>
+
+<div class="mt-5">
+    <h1>{{article.title}}</h1>
+    <span>{{article.updated | date: 'dd MMMM yyyy'}}</span>
+    <div class="mt-3" [innerHTML]="article.text"></div>
+</div>
+
+<app-spinner [isShow]="!show"></app-spinner>

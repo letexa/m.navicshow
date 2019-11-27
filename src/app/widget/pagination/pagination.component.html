@@ -1,0 +1,39 @@
+<div class="mt-5" *ngIf="numbers?.length > 1">
+    <nav aria-label="...">
+      <ul class="pagination">
+
+        <li class="page-item disabled" *ngIf="previousNumber == 0; else elsePrevious">
+          <span class="page-link">
+            Previous
+          </span>
+        </li>
+        <ng-template #elsePrevious>
+          <li class="page-item">
+            <a class="page-link" href="#" [routerLink] = "previousNumber > 1 ? [url+'/'+previousNumber] : [url]">Previous</a>
+          </li>
+        </ng-template>
+        
+        <li *ngFor="let number of numbers">
+            <span class="page-link" *ngIf="number == currentPage; else elsePageLink">
+                {{number}}
+            </span>
+          <ng-template #elsePageLink>
+            <a class="page-link" href="" [routerLink] = "number > 1 ? [url+'/'+number] : [url]">
+              {{number}}
+            </a>
+          </ng-template>
+        </li>
+
+        <li class="page-item disabled" *ngIf="nextNumber == 0; else elseNext">
+            <span class="page-link">
+              Next
+            </span>
+          </li>
+          <ng-template #elseNext>
+            <li class="page-item">
+              <a class="page-link" href="#" [routerLink] = "[url+'/'+nextNumber]">Next</a>
+            </li>
+          </ng-template>
+      </ul>
+    </nav>
+</div>

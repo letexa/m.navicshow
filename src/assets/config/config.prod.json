@@ -1,0 +1,16 @@
+{
+  "env": {
+    "name": "DEV"
+   },
+   "apiServer": {
+    "protocol": "http",
+    "host": "api.navicshow.loc",
+    "token": "A6V5ElpWSfhWKdk18WoSBvsxKo4yC8sHAm6GlqUKLMoEfHx7ZUjpPlvMsvUtKwZKEUdWUE"
+  },
+  "category": {
+    "limit": 10
+  },
+  "article": {
+    "limit": 5
+  }
+}

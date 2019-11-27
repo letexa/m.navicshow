@@ -1,0 +1,37 @@
+<app-menu></app-menu>
+
+<div *ngIf="showArticles">
+    <div class="container mt-5" *ngFor="let item of list">
+        <div class="row">
+            <h3 class="col-8">{{item.title}}</h3>
+            <div class="col-8">
+                {{item.preview}}
+            </div>
+
+            <div class="col-2">
+                <a href="" [routerLink] = "['/article/view/'+item.id]">
+                    <i class="navbar-toggler-icon fa fa-eye"></i>
+                </a>
+                <a href="" [routerLink] = "['/article/edit/'+item.id]">
+                    <i class="navbar-toggler-icon fa fa-pencil"></i>
+                </a>
+                <a href="" [routerLink] = "" (click) = "deleteArticle(item.id)">
+                  <i class="navbar-toggler-icon fa fa-trash"></i>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<app-pagination
+    [currentPage]="page" 
+    [itemTotal]="count"
+    [limit]="limit"
+    [url]="'/article'"
+>
+</app-pagination>
+
+<app-spinner [isShow]="isSpinner"></app-spinner>
+
+

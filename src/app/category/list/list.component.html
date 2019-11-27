@@ -1,0 +1,31 @@
+<app-menu></app-menu>
+
+<div class="mb-5" *ngIf="showCaterogies">
+  <div class="container mt-5" *ngFor="let item of list">
+    <div class="row">
+      <div class="col-4">
+        {{item.name}}
+      </div>
+      <div class="col-1">
+        <a href="" [routerLink] = "['/category/edit/'+item.id]">
+            <i class="navbar-toggler-icon fa fa-pencil"></i>
+        </a>
+        <a href="" [routerLink] = "" (click) = "deleteCategory(item.id)">
+          <i class="navbar-toggler-icon fa fa-trash"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+<app-pagination
+    [currentPage]="page" 
+    [itemTotal]="count"
+    [limit]="limit"
+    [url]="'/category'"
+>
+  </app-pagination>
+</div>
+
+<app-spinner [isShow]="isSpinner"></app-spinner>
+
+
